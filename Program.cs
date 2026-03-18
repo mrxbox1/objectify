@@ -17,10 +17,12 @@ AzureOpenAIClient leClient = new(
 
 ImageClient leImageClient = leClient.GetImageClient("gpt-image-1.5");
 
-Console.WriteLine("\nFor the sake of '''convenience''', all images will be stored in the desktop directory.");
+Console.WriteLine("\nFor the sake of '''convenience''', all images will be stored in the project directory.");
 Console.WriteLine("Please input a file name. Make sure to include the file extension (i.e. .png, .jpeg, et cetera)");
 Console.Write("Your file here: ");
-string leImagePath = Environment.SpecialFolder.DesktopDirectory + "\\" + Console.ReadLine();
+// thanks, random stranger on Stack Overflow from 2020 :D
+string leImagePath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + "\\" +
+                     Console.ReadLine();
 
 if (!File.Exists(leImagePath)) {
     Console.WriteLine("This file doesn't exist.");
