@@ -23,10 +23,10 @@ Console.Write("Your file here: ");
 // thanks, random stranger on Stack Overflow from 2020 :D
 string leImagePath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + "\\" +
                      Console.ReadLine();
+Console.WriteLine(leImagePath);
 
 if (!File.Exists(leImagePath)) {
     Console.WriteLine("This file doesn't exist.");
-    Console.WriteLine(leImagePath);
     return;
 }
 
